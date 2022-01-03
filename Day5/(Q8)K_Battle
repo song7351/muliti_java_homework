@@ -1,0 +1,39 @@
+// Day5
+// 과제8) 객체지향 방식으로 가위바위보를 하는데 두명의 선수가 무작위로 가위 바위 보를 낸 다음 승부를 출력하시오.
+public class K_Battle{
+    public static void main(String[] args) {
+        Battle minsu = new Battle();
+        Battle chulsoo = new Battle();
+
+        minsu.choose();
+        chulsoo.choose();
+        System.out.println("가위 바위 보!");
+        System.out.println("민수: "+minsu.b);
+        System.out.println("철수: "+chulsoo.b);
+        if(minsu.a == chulsoo.a){
+            System.out.println("결과: 무승부");
+        }
+        else if(chulsoo.a - minsu.a == 1 || chulsoo.a - minsu.a == -2){
+            System.out.println("결과: 민수(패), 철수(승)");
+        }
+        else{
+            System.out.println("결과: 민수(승), 철수(패)");
+        }
+
+    }
+}
+
+class Battle{
+    int a;
+    String b;
+    int[] num = new int[]{0,1,2};
+    String[] weapon = new String[]{"가위","바위","보"};
+
+    void choose(){
+        int i = (int)(Math.random()*3);
+        this.a = num[i];
+        this.b = weapon[i];
+    }
+
+
+}
