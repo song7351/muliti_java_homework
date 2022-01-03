@@ -1,0 +1,126 @@
+// Day5
+// 과제10) 축구 - 팀 - 사람 의 구조로 상속 가능한 객체지향 코드를 작성하고, 
+// 가위바위보 방식으로 팀별 승리팀을 출력하는 코드를 작성하시오.(승리 조건 및 클래스의 속성/메소드는 자유)
+// 모르겠다; 넘나 어려운것;
+
+import java.util.Arrays;
+
+public class SoccerGame {
+    public static void main(String[] args) {
+        Soccer game01 = new Soccer();
+        game01.start();
+        game01.rule();
+        game01.make();
+        game01.red_list();
+        game01.choose_r();
+        game01.blue_list();
+        game01.choose_b();
+        game01.round();
+        game01.result();
+        
+    }
+}
+
+class Player{
+
+    int[] a = new int[5], c = new int[5];
+    String[] b = new String[5], d = new String[5];
+    int[] num = new int[]{0,1,2};
+    String[] stat = new String[]{"공격","수비","개인기"};
+
+    void choose_r(){
+        for(int j=0; j<5; j++){
+        int i = (int)(Math.random()*3);
+        a[j] = num[i];
+        b[j] = stat[i];
+        }
+    }
+
+    void choose_b(){
+        for(int j=0; j<5; j++){
+        int i = (int)(Math.random()*3);
+        c[j] = num[i];
+        d[j] = stat[i];
+        }
+    }
+
+ 
+}
+
+class Team extends Player{
+    String[] red = {"R1","R2","R3","R4","R5"};
+    String[] blue = {"B1","B2","B3","B4","B5"};
+
+    void red_list(){//선수 명단
+        System.out.println("Red팀의 선수명단은 "+ Arrays.toString(red)+" 입니다.");
+    }
+
+    void blue_list(){//선수 명단
+        System.out.println("Blue팀의 선수명단은 "+Arrays.toString(blue)+" 입니다.");  
+    }  
+
+}
+
+class Soccer extends Team{
+    int score_r = 0;
+    int score_b = 0;
+
+    void start(){
+        System.out.println("게임을 시작합니다.");
+    }
+
+    void rule(){
+        System.out.println("---------------------------");
+        System.out.println("선수는 공격/수비/개인기 중 택1");
+        System.out.println("점수획득 조건: 공격<수비 // 수비<개인기 // 개인기<공격");
+        System.out.println("팀의 최종 점수를 비교하여 승/패를 결정한다.");
+    }
+
+    void make(){
+        System.out.println("---------------------------");
+        System.out.println("Red팀과 Blue팀을 생성합니다.");
+    }
+
+    void round(){
+        for(int i=0; i<5; i++){
+            System.out.println("---------------------------");
+            System.out.println((i+1)+"경기를 시작합니다.");
+            System.out.println("Red팀 "+red[i]+" : "+b[i]);
+            System.out.println("Blue팀 "+blue[i]+" : "+d[i]);
+            if(a[i] == c[i]){
+                System.out.println("무승부");
+            }
+            else if(a[i] - c[i] == 1 || a[i] - c[i] == -2){
+                System.out.println("Red팀 1점 획득");
+                score_r += 1;
+            }
+            else{
+                System.out.println("Blue팀 1점 획득");
+                score_b += 1;
+            }
+        }
+    }
+
+    void result(){
+
+        if(score_r == score_b){
+            System.out.println("---------------------------");
+            System.out.println("최종결과: 무승부("+score_r+":"+score_b+")");
+            System.out.println("---------------------------");
+        }
+        else if(score_r > score_b){
+            System.out.println("---------------------------");
+            System.out.println("최종결과: Red팀 승리("+score_r+":"+score_b+")");
+            System.out.println("---------------------------");
+        }
+        else {
+            System.out.println("---------------------------");
+            System.out.println("최종결과: Blue팀 승리("+score_r+":"+score_b+")");
+            System.out.println("---------------------------");
+        }
+
+    }
+
+
+
+}
