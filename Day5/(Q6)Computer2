@@ -1,0 +1,112 @@
+// Day5
+// 과제6) 컴퓨터 부품을 class로 작성하고 컴퓨터 부품을 조합하여 컴퓨터 class를 완성하시오.
+public class Computer2 {
+
+    public static void main(String[] args){
+        CPU cpu = new CPU();
+        Motherboard main = new Motherboard();
+        Memory memory = new Memory();
+        HardDisk disk = new HardDisk();
+        Power power = new Power();
+
+        cpu.onOff();
+        main.onOff();
+        memory.onOff();
+        disk.onOff();
+        power.onOff();
+
+        if(cpu.existence == true &&
+        main.existence == true &&
+        memory.existence == true &&
+        disk.existence == true &&
+        power.existence == true){
+            System.out.println("컴퓨터가 정상 작동합니다.");
+        }
+        else{
+            System.out.println("컴퓨터 부품이 부족합니다.");
+        }
+    }
+    
+}
+
+class CPU{
+    boolean existence;
+
+    public boolean onOff(){
+        int i = (int)(Math.random()*2);
+        if(i==0){
+            this.existence = false;
+        }
+        else{
+            this.existence = true;
+        }
+        System.out.println("CPU: "+this.existence);
+        return this.existence;
+    }
+}
+
+class Motherboard{
+    boolean existence;
+
+    public boolean onOff(){
+        int i = (int)(Math.random()*2);
+        if(i==0){
+            this.existence = false;
+        }
+        else{
+            this.existence = true;
+        }
+        System.out.println("MotherBoard: "+this.existence);
+        return this.existence;
+    }
+}
+
+class Memory{
+    boolean existence;
+
+    public boolean onOff(){
+        int i = (int)(Math.random()*2);
+        if(i==0){
+            this.existence = false;
+        }
+        else{
+            this.existence = true;
+        }
+        System.out.println("Memory: "+this.existence);
+        return this.existence;
+    }
+}
+
+class HardDisk{
+    boolean existence;
+
+    public boolean onOff(){
+        int i = (int)(Math.random()*2);
+        if(i==0){
+            this.existence = false;
+        }
+        else{
+            this.existence = true;
+        }
+        System.out.println("HardDisk: "+this.existence);
+        return this.existence;
+    }
+}
+
+class Power{
+    boolean existence;
+
+    public boolean onOff(){
+        int i = (int)(Math.random()*2);
+        if(i==0){
+            this.existence = false;
+        }
+        else{
+            this.existence = true;
+        }
+        System.out.println("Power: "+this.existence);
+        return this.existence;
+    }
+}
+
+
