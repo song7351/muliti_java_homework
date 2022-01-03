@@ -1,0 +1,22 @@
+// Day5
+// 과제9) java.util.Date, java.text.SimpleDateFormat 을 임포트하고 현재 날짜를 2021-12-31 23:59:59 로 출력하시오.
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Today {
+    public static void main(String[] args) {
+        
+        Date today = new Date();
+
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat time = new SimpleDateFormat("hh:mm:ss ");    //a가 없으면 24시간
+        SimpleDateFormat time_a = new SimpleDateFormat("hh:mm:ss a"); //a를 붙여주면 12시간(am/pm)
+
+        System.out.println(today); //요일(영어) 월(영어) 일 시간 KST 년도
+        System.out.println(date.format(today)+" "+time.format(today)); 
+        System.out.println(date.format(today)+" "+time_a.format(today));
+
+    }
+    
+}
