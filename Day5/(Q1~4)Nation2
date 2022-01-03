@@ -1,0 +1,85 @@
+// Day5
+// 과제1) Class Nation 을 만들고 나라이름, 면적, 인구수를 멤버 변수로 만들고, 나라이름변경(), 면적변경(), 인구수변경() 메소드를 만드시오.
+// 과제2) Class Nation 을 상속한 나라를 3개 만들고, 나라별로 특수한 멤버변수 하나와 메소드 하나를 생성하시오.
+// 과제3) Class Nation 을 나라이름을 private로 지정하고, 면적과 인구수는 public 으로 지정하시오.
+// 과제4) Class Nation 을 만들고 행성이름을 만들고 static으로 지정하시오.
+
+public class Nation2 {
+    
+    private String country; //나라이름
+    public int area;       //면적 단위(km²)
+    public double population;  //인구수 단위(억 명)
+    static String planet = "Earth";
+
+    public Nation2(String country,int area,double population ){
+        this.country = country;
+        this.area = area;
+        this.population = population;
+    }
+
+    // //마우스 우클릭 - 소스작업... - Generate Getters and Setters
+    
+    // public void setCountry(String country) { //나라이름 변경
+    //     this.country = country;
+    // }
+    
+    // public void setArea(int area) { //면적 변경
+    //     this.area = area;
+    // }
+    
+    // public void setPopulation(double population) { //인구수 변경
+    //     this.population = population;
+    // }
+
+    public void Print() { //출력값 확인해보기
+        System.out.println(country+" "+area+" "+population+" ");
+    }
+}
+    
+
+
+    class USA extends Nation2 {
+        USA() {
+            super("USA", 9834000, 3.295);
+        }
+
+        String capital = "Washington D.C.";
+
+        void setCapital(String capital) {
+            this.capital = capital;
+        }
+
+        //test 출력 //결과 USA 9834000 3.295
+        public static void main(String[] args) {
+            USA a = new USA();
+            a.Print();
+        }
+    }
+
+    class China extends Nation2 {
+        China() {
+            super("China", 9597000, 14.02);
+        }
+
+        String currency = "CNY"; // 중국의 통화
+
+        void setCurrency(String currency) {
+            this.currency = currency;
+        }
+    }
+
+    class Japan extends Nation2 {
+        Japan() {
+            super("Japan", 377975, 1.258);
+        }
+
+        String language = "Japanese";
+
+        void setLanguage(String language) {
+            this.language = language;
+        }
+    }
+    
+    //test
+
+
