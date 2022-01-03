@@ -1,0 +1,47 @@
+// Day5
+// 과제6) 컴퓨터 부품을 class로 작성하고 컴퓨터 부품을 조합하여 컴퓨터 class를 완성하시오.
+
+public class Computer {
+
+    Computer(){
+        CPU cpu = new CPU();
+        Motherboard main = new Motherboard();
+        Memory memory = new Memory();
+        HardDisk disk = new HardDisk();
+        Power power = new Power();
+    }
+    
+}
+
+class CPU{
+    public void clac(){
+        System.out.println("중앙처리장치");
+    }
+}
+
+class Motherboard{
+    public void mainboard(){
+        System.out.println("회로기판");
+    }
+}
+
+class Memory{
+    public void ram(){
+        System.out.println("Ram은 단기데이터 스토리지");
+    }
+
+}
+
+class HardDisk{
+    public void hdd(){
+        System.out.println("보조기억장치(비휘발성)");
+    }
+}
+
+class Power{
+    public void supply(){
+        System.out.println("전류 공급 역할");
+    }
+}
+
+
